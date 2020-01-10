@@ -1,6 +1,6 @@
 # LCG-and-Cipher
 
-## description
+## Description
 Create an implementation of a Linear Congruential Generator that can be used to create a sequence of pseudo random numbers. You will then use your LCG as part of a cipher algorithm to encrypt and decrypt text. This assignment was mean to give some practice using structs, pointers, and header files.
 
 ### LCG Initialization
@@ -29,9 +29,13 @@ Any 8-bit sequences outside of this range constitutes invalid data.
 ### Cipher Record Format
 Each cipher record must be of the form:
 
-Action	lcg_m	,	lcg_c	,	Data	\n
-1 char	1-20 char	1 char	1-20 char	1 char	any number of char	1 char
+Action:	lcg_m	,	lcg_c	,	Data	\n
+
+
+
 Action:
+
+
 Must be either ‘e’ or ‘d’, specifying encryption or decryption respectively.
 lcg_m:
 Specifies a 64-bit positive integer used for m of a Linear Congruential Generator. Must be decimal digits.
@@ -51,14 +55,18 @@ Return to step 2 and continue until the end of the line
 Note: (A XOR B) XOR B = A, so we are able to decrypt our message reapplying the same XOR operation. (When decrypting, you will deal with special characters first, then XOR to decrypt back to the original plaintext character.)
 
 ### Initialization
-Given a 128-bit symmetric key consisting of:
-m   : a 64-bit positive integer used as an LCG modulus,
+Given a 128-bit symmetric key consisting of
+
+
+m   : a 64-bit positive integer used as an LCG modulus
+
+
 c   : a 64-bit positive integer used as an LCG increment
 
 ### Reading Data Bytes
 Within each record, the data portion is the set of characters between the second comma and ’\n’.
-When encrypting: Use getchar() to read 1 byte of data to encrypt.
-When decrypting: Reading in an encrypted byte may require reading 2 bytes from standard input since some character codes have 2-byte ciphertext representations.
+When encrypting: Used getchar() to read 1 byte of data to encrypt.
+When decrypting: Reading in an encrypted byte required reading 2 bytes from standard input since some character codes have 2-byte ciphertext representations.
 Any character in the data segment not in the range of printable ASCII characters (32 to 126) is an error.
 
 
